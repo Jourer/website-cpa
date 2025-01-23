@@ -361,19 +361,17 @@ document.addEventListener("DOMContentLoaded", function () {
             // Mobile behavior: Start with collapsed content and show toggle button
             toggleContent.classList.remove("active");
             toggleButton.style.display = "block";
-
-            // Add click handler only for mobile
-            toggleButton.addEventListener("click", function () {
-                if (toggleContent.classList.contains("active")) {
-                    toggleContent.classList.remove("active"); // Collapse content
-                    toggleButton.textContent = "Learn more >>"; // Update button text
-                    toggleButton.margin-bottom = "0.1rem";
-                } else {
-                    toggleContent.classList.add("active"); // Expand content
-                    toggleButton.textContent = "<< Hide"; // Update button text
-                }
-            });
         }
+        // Add click handler only for mobile
+        toggleButton.addEventListener("click", function () {
+            if (toggleContent.classList.contains("active")) {
+                toggleContent.classList.remove("active"); // Collapse content
+                toggleButton.textContent = "Learn more >>"; // Update button text
+            } else {
+                toggleContent.classList.add("active"); // Expand content
+                toggleButton.textContent = "<< Hide"; // Update button text
+            }
+        });
     });
 });
 </script>
