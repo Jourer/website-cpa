@@ -1,4 +1,30 @@
-var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.ASSUME_ES5=!1;$jscomp.ASSUME_NO_NATIVE_MAP=!1;$jscomp.ASSUME_NO_NATIVE_SET=!1;$jscomp.SIMPLE_FROUND_POLYFILL=!1;$jscomp.defineProperty=$jscomp.ASSUME_ES5||"function"==typeof Object.defineProperties?Object.defineProperty:function(b,h,d){b!=Array.prototype&&b!=Object.prototype&&(b[h]=d.value)};$jscomp.getGlobal=function(b){return"undefined"!=typeof window&&window===b?b:"undefined"!=typeof global&&null!=global?global:b};$jscomp.global=$jscomp.getGlobal(this);
+$jscomp=$jscomp||{};$jscomp.scope={};$jscomp.ASSUME_ES5=!1;$jscomp.ASSUME_NO_NATIVE_MAP=!1;$jscomp.ASSUME_NO_NATIVE_SET=!1;$jscomp.SIMPLE_FROUND_POLYFILL=!1;$jscomp.defineProperty=$jscomp.ASSUME_ES5||"function"==typeof Object.defineProperties?Object.defineProperty:function(b,h,d){b!=Array.prototype&&b!=Object.prototype&&(b[h]=d.value)};$jscomp.getGlobal=function(b){return"undefined"!=typeof window&&window===b?b:"undefined"!=typeof global&&null!=global?global:b};$jscomp.global=$jscomp.getGlobal(this);
+
+// Dark/Light mode toggle logic
+document.addEventListener('DOMContentLoaded', function() {
+	const modeToggle = document.getElementById('mode-toggle');
+	if (modeToggle) {
+		// Set initial mode from localStorage
+		if (localStorage.getItem('colorMode') === 'dark') {
+			document.body.classList.add('dark-mode');
+		}
+		modeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light' : '🌙 Dark';
+		// keep the event listener for non-inline fallback
+		modeToggle.addEventListener('click', function() {
+			toggleColorMode();
+		});
+	}
+});
+
+// Expose a global function so the button's inline onclick always works
+function toggleColorMode() {
+  const btn = document.getElementById('mode-toggle');
+  if (!btn) return;
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  localStorage.setItem('colorMode', isDark ? 'dark' : 'light');
+  btn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+}
 $jscomp.polyfill=function(b,h,d,q){if(h){d=$jscomp.global;b=b.split(".");for(q=0;q<b.length-1;q++){var l=b[q];l in d||(d[l]={});d=d[l]}b=b[b.length-1];q=d[b];h=h(q);h!=q&&null!=h&&$jscomp.defineProperty(d,b,{configurable:!0,writable:!0,value:h})}};
 $jscomp.polyfill("Array.from",function(b){return b?b:function(b,d,q){d=null!=d?d:function(b){return b};var h=[],m="undefined"!=typeof Symbol&&Symbol.iterator&&b[Symbol.iterator];if("function"==typeof m){b=m.call(b);for(var r=0;!(m=b.next()).done;)h.push(d.call(q,m.value,r++))}else for(m=b.length,r=0;r<m;r++)h.push(d.call(q,b[r],r));return h}},"es6","es3");$jscomp.owns=function(b,h){return Object.prototype.hasOwnProperty.call(b,h)};
 $jscomp.polyfill("Object.values",function(b){return b?b:function(b){var d=[],h;for(h in b)$jscomp.owns(b,h)&&d.push(b[h]);return d}},"es8","es3");$jscomp.findInternal=function(b,h,d){b instanceof String&&(b=String(b));for(var q=b.length,l=0;l<q;l++){var m=b[l];if(h.call(d,m,l,b))return{i:l,v:m}}return{i:-1,v:void 0}};$jscomp.polyfill("Array.prototype.find",function(b){return b?b:function(b,d){return $jscomp.findInternal(this,b,d).v}},"es6","es3");

@@ -9,6 +9,91 @@ body {
   font-weight: 400;
   color: #232323;
   position: relative;
+  background: #fff;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background: #181818 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode section {
+  background-color: #232323 !important;
+}
+
+body.dark-mode .navbar, body.dark-mode .navbar-brand, body.dark-mode .navbar-caption, body.dark-mode .navbar-nav .nav-link {
+  background-color: #454545 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .btn, body.dark-mode .btn-outline-light {
+  background: #454545 !important;
+  color: #f1f1f1 !important;
+  border-color: #f1f1f1 !important;
+}
+
+body.dark-mode .mbr-section-title, body.dark-mode .mbr-section-subtitle, body.dark-mode .mbr-text, body.dark-mode p, body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .card, body.dark-mode .item-wrapper {
+  background: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode a, body.dark-mode a:hover {
+  color: #aad8ff !important;
+}
+
+/* Ensure item-content panels use the dark panel color in dark mode */
+body.dark-mode .item-content {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+body.dark-mode .item-content a,
+body.dark-mode .item-content p,
+body.dark-mode .item-content .mbr-text {
+  color: #f1f1f1 !important;
+}
+
+/* Make navbar title and buttons match the bar background in dark mode */
+body.dark-mode nav.navbar,
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar-caption-wrap,
+body.dark-mode .navbar-caption,
+body.dark-mode nav.navbar .navbar-caption a,
+body.dark-mode .navbar-nav .nav-link {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+}
+
+/* Navbar buttons styling */
+body.dark-mode nav.navbar .btn,
+body.dark-mode .navbar .btn-outline-light,
+body.dark-mode .btn-outline-light {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+  border-color: #f1f1f1 !important;
+}
+
+/* Ensure nav link hover is visible */
+body.dark-mode .navbar-nav .nav-link:hover {
+  color: #aad8ff !important;
+}
+
+/* Make the caption wrap itself use the same bar color and padding */
+body.dark-mode .navbar-brand .navbar-caption-wrap {
+  background-color: #232323 !important;
+  color: #f1f1f1 !important;
+  display: inline-block !important;
+  padding: 0.25rem 0.5rem !important;
+}
+
+/* Ensure links inside the caption inherit the color */
+body.dark-mode .navbar-brand .navbar-caption-wrap a {
+  color: #f1f1f1 !important;
 }
 
 button {
@@ -256,8 +341,21 @@ iframe {
 }
 
 .card {
-  background-color: transparent;
+  background-color: #000 !important;
+  color: #f1f1f1 !important;
   border: none;
+}
+
+.card a,
+.card .mbr-text,
+.card p,
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6 {
+  color: #f1f1f1 !important;
 }
 
 .card-box {
